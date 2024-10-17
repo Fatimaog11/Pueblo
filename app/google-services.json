@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "630498276559",
+    "project_id": "pueblos-99f45",
+    "storage_bucket": "pueblos-99f45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630498276559:android:e063be54172c213edff3ba",
+        "android_client_info": {
+          "package_name": "com.example.pueblos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClcrOP3JvnUKG34w_gKOMGQEEOWZRFhP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

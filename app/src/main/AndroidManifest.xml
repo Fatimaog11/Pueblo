@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Permisos necesarios -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,19 +15,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pueblos"
         tools:targetApi="31">
-        <activity android:name=".com.example.pueblos.RegisterActivity"
-        android:exported="true"> <!-- Asegúrate de que está exportada -->
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
 
-        <!-- MainActivity, ya no será la actividad principal -->
-        <activity android:name=".MainActivity" />
+        <!-- RegisterActivity -->
+        <activity android:name=".RegisterActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- MainActivity -->
+        <activity android:name=".MainActivity"
+            android:exported="true" />
 
         <!-- LoginActivity -->
-        <activity android:name=".com.example.pueblos.LoginActivity" />
-
+        <activity android:name=".LoginActivity"
+            android:exported="true" />
     </application>
+
 </manifest>

@@ -6,10 +6,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pueblos.ConnectionBD.ConnectionBD
-import java.sql.Connection
-import java.sql.PreparedStatement
-import java.sql.SQLException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import android.content.Intent
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -19,11 +18,18 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var etContrasena: EditText
     private lateinit var btnRegistrar: Button
     private lateinit var tvIniciarSesion: TextView
-    private lateinit var connection: Connection
+
+    // Firebase Authentication y Firestore
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        // Inicializar Firebase
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         // Inicializar las vistas
         etNombre = findViewById(R.id.etNombre)
@@ -33,11 +39,6 @@ class RegisterActivity : AppCompatActivity() {
         btnRegistrar = findViewById(R.id.btnRegistrar)
         tvIniciarSesion = findViewById(R.id.tvLogin)
 
-        // Inicializar la conexión a la base de datos
-        val connectionBD = ConnectionBD()
-        connection = connectionBD.connect()
-
-        // Configurar el comportamiento del botón de registro
         btnRegistrar.setOnClickListener {
             val nombre = etNombre.text.toString().trim()
             val correo = etCorreo.text.toString().trim()
@@ -45,42 +46,53 @@ class RegisterActivity : AppCompatActivity() {
             val contrasena = etContrasena.text.toString().trim()
 
             if (nombre.isNotEmpty() && correo.isNotEmpty() && usuario.isNotEmpty() && contrasena.isNotEmpty()) {
-                // Insertar los datos del usuario en la base de datos
-                if (registrarUsuario(nombre, correo, usuario, contrasena)) {
-                    Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Error al registrar", Toast.LENGTH_SHORT).show()
-                }
+                registrarUsuario(nombre, correo, usuario, contrasena)
             } else {
+                // Mostrar mensaje si algún campo está vacío
                 Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Comportamiento del enlace "¿Ya tienes una cuenta? Inicia sesión"
+        // Enlace a la actividad de inicio de sesión
         tvIniciarSesion.setOnClickListener {
-            // Redirigir al inicio de sesión
-            // Aquí podrías lanzar la actividad LoginActivity
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
-    // Función para registrar un usuario en la base de datos
-    private fun registrarUsuario(Nombre: String, Correo: String, Usuario: String, Contrasena: String): Boolean {
-        val query = "INSERT INTO Usuarios (Nombre, Correo, Usuario, Contrasena) VALUES (?, ?, ?, ?)"
-        var preparedStatement: PreparedStatement? = null
+    private fun registrarUsuario(nombre: String, correo: String, usuario: String, contrasena: String) {
+        auth.createUserWithEmailAndPassword(correo, contrasena)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Registro exitoso en Firebase Authentication
+                    val firebaseUser = auth.currentUser
+                    val uid = firebaseUser?.uid
 
-        return try {
-            preparedStatement = connection.prepareStatement(query)
-            preparedStatement.setString(1, Nombre)
-            preparedStatement.setString(2, Correo)
-            preparedStatement.setString(3, Usuario)
-            preparedStatement.setString(4, Contrasena)
-            preparedStatement.executeUpdate()
-            true
-        } catch (e: SQLException) {
-            e.printStackTrace()
-            false
-        } finally {
-            preparedStatement?.close()
-        }
+                    // Guardar información adicional en Firestore
+                    val userMap = hashMapOf(
+                        "nombre" to nombre,
+                        "correo" to correo,
+                        "usuario" to usuario,
+                        "contrasena" to contrasena
+                    )
+
+                    uid?.let {
+                        firestore.collection("Usuarios").document(it)
+                            .set(userMap)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this, LoginActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this, "Error al guardar los datos: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                } else {
+                    // Si el registro falla, mostrar mensaje
+                    Toast.makeText(this, "Error en el registro: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 }

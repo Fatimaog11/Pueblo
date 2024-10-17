@@ -1,74 +1,81 @@
 package com.example.pueblos
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pueblos.ConnectionBD.ConnectionBD
-import java.sql.Connection
-import java.sql.PreparedStatement
-import java.sql.ResultSet
-import java.sql.SQLException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var etUsuario: EditText
     private lateinit var etContrasena: EditText
     private lateinit var btnLogin: Button
-    private lateinit var connection: Connection
+    private lateinit var tvRegistrar: TextView
+
+    // Firebase Authentication
+    private lateinit var auth: FirebaseAuth
+
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // Inicializar las vistas
+        // Inicializar FirebaseAuth
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
+
+        // Inicialización de vistas
         etUsuario = findViewById(R.id.etUsuario)
         etContrasena = findViewById(R.id.etContrasena)
         btnLogin = findViewById(R.id.btnLogin)
+        tvRegistrar = findViewById(R.id.tvRegistrar)
 
-        // Inicializar la conexión a la base de datos
-        val connectionBD = ConnectionBD()
-        connection = connectionBD.connect()
-
-        // Configurar el comportamiento del botón de inicio de sesión
+        // Configurar comportamiento del botón de iniciar sesión
         btnLogin.setOnClickListener {
-            val usuario = etUsuario.text.toString().trim()
+            val correo = etUsuario.text.toString().trim()
             val contrasena = etContrasena.text.toString().trim()
 
-            if (usuario.isNotEmpty() && contrasena.isNotEmpty()) {
-                // Verificar las credenciales del usuario en la base de datos
-                if (verificarCredenciales(usuario, contrasena)) {
-                    Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-                    // Aquí podrías redirigir al usuario a la pantalla principal de la aplicación
-                } else {
-                    Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
-                }
+            if (correo.isNotEmpty() && contrasena.isNotEmpty()) {
+                iniciarSesion(correo, contrasena)
             } else {
-                Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
+                // Si faltan campos
+                Toast.makeText(this, "Por favor, ingresa todos los campos", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // Configurar comportamiento del enlace para ir al registro
+        tvRegistrar.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
-    // Función para verificar las credenciales del usuario en la base de datos
-    private fun verificarCredenciales(Usuario: String, Contrasena: String): Boolean {
-        val query = "SELECT * FROM Usuarios WHERE Usuario = ? AND Contrasena = ?"
-        var preparedStatement: PreparedStatement? = null
-        var resultSet: ResultSet? = null
+    private fun iniciarSesion(correo: String, contrasena: String) {
+        auth.signInWithEmailAndPassword(correo, contrasena)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Inicio de sesión exitoso
+                    Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
 
-        return try {
-            preparedStatement = connection.prepareStatement(query)
-            preparedStatement.setString(1, Usuario)
-            preparedStatement.setString(2, Contrasena)
-            resultSet = preparedStatement.executeQuery()
+                    // Navegar a otra actividad o pantalla principal
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish() // Cierra la actividad actual
 
-            resultSet.next() // Si hay un registro, las credenciales son correctas
-        } catch (e: SQLException) {
-            e.printStackTrace()
-            false
-        } finally {
-            resultSet?.close()
-            preparedStatement?.close()
-        }
+                } else {
+                    // Si el inicio de sesión falla, mostrar mensaje
+                    Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { e ->
+                // Mostrar mensaje de error
+                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 }
