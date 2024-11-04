@@ -7,79 +7,51 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-
     <!-- Imagen de fondo (Reloj) -->
     <ImageView
         android:id="@+id/ivEncabezado"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/reloj"
+        android:src="@drawable/inicio"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Texto grande "PUEBLOS MÁGICOS" -->
+    <!-- Texto grande "REAL DEL MONTE" alineado a la izquierda -->
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PUEBLOS MÁGICOS"
-        android:textSize="24sp"
+        android:text="REAL DEL MONTE"
+        android:textSize="20sp"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@+id/ivEncabezado"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="70dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="55dp" />
 
-    <!-- Subtítulo "Explora, Descubre y Vive" -->
+    <!-- Subtítulo -->
     <TextView
         android:id="@+id/tvSubtitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Explora, Descubre y Vive"
-        android:textSize="15sp"
+        android:text="Se encuentra a tan sólo 2 horas de la CDMX y definitivamente es un destino lleno de historia y sabor, que vale mucho la pena conocer. Precisamente aquí nacieron los deliciosos pastes y fue donde se jugó fútbol por primera vez en México."
+        android:textSize="10sp"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/tvTitulo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Barra de búsqueda -->
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/search_view_background"
-        android:queryHint="¿Qué estás buscando?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo" />
-
-    <!-- Botones circulares -->
-    <GridLayout
-        android:id="@+id/glBotonesCirculares"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:alignmentMode="alignBounds"
-        android:columnCount="3"
-        android:rowCount="2"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchView"/>
-
-    <!-- Contenedor de botones circulares en una sola línea -->
+    <!-- Botones circulares en una sola línea -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="110dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchView">
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo">
 
         <LinearLayout
             android:id="@+id/llBotonesCirculares"
@@ -95,7 +67,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
-
                 <ImageView
                     android:id="@+id/btnPueblo"
                     android:layout_width="44dp"
@@ -103,7 +74,6 @@
                     android:background="@drawable/btn_circle_background"
                     android:src="@drawable/pue"
                     android:contentDescription="Pueblo Icon" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +90,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
-
                 <ImageView
                     android:id="@+id/btnAtractivos"
                     android:layout_width="44dp"
@@ -128,7 +97,6 @@
                     android:background="@drawable/btn_circle_background"
                     android:src="@drawable/atractivos"
                     android:contentDescription="Atractivos Icon" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -145,7 +113,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
-
                 <ImageView
                     android:id="@+id/btnEventos"
                     android:layout_width="44dp"
@@ -153,7 +120,6 @@
                     android:background="@drawable/btn_circle_background"
                     android:src="@drawable/events"
                     android:contentDescription="Eventos Icon" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -170,7 +136,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
-
                 <ImageView
                     android:id="@+id/btnHotel"
                     android:layout_width="44dp"
@@ -178,7 +143,6 @@
                     android:background="@drawable/btn_circle_background"
                     android:src="@drawable/hotel"
                     android:contentDescription="Hotel Icon" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -195,7 +159,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
-
                 <ImageView
                     android:id="@+id/btnRestaurantes"
                     android:layout_width="44dp"
@@ -203,7 +166,6 @@
                     android:background="@drawable/btn_circle_background"
                     android:src="@drawable/restaurant"
                     android:contentDescription="Restaurantes Icon" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -220,7 +182,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
-
                 <ImageView
                     android:id="@+id/btnRutas"
                     android:layout_width="44dp"
@@ -228,7 +189,6 @@
                     android:background="@drawable/btn_circle_background"
                     android:src="@drawable/map"
                     android:contentDescription="Rutas Icon" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -237,33 +197,97 @@
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
             </LinearLayout>
-
         </LinearLayout>
     </HorizontalScrollView>
 
-    <!-- Imagen y texto "REAL DEL MONTE" -->
-    <ImageView
-        android:id="@+id/btnRealDelMonte"
-        android:layout_width="128dp"
-        android:layout_height="122dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/real"
-        app:layout_constraintTop_toBottomOf="@id/glBotonesCirculares"
+    <!-- Botones separados para eventos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="180dp"
+        app:layout_constraintTop_toBottomOf="@id/llBotonesCirculares"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="130dp" />
+        tools:ignore="NotSibling">
+
+        <!-- Imagen "Festival de la Plata" -->
+
+        <!-- Imagen "Festival del Paste" -->
+
+        <!-- Imagen "Feria del Dulce Nombre" -->
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:text="REAL DEL MONTE"
+        android:text="FERIA DEL DULCE NOMBRE"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/btnRealDelMonte"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="680dp"
+        tools:ignore="MissingConstraints" />
 
+    <ImageView
+        android:id="@+id/btnFeria"
+        android:layout_width="128dp"
+        android:layout_height="122dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/dulce"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="542dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="FESTIVAL DEL PASTE"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="480dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/btnPaste"
+        android:layout_width="128dp"
+        android:layout_height="122dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/past"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="344dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="FESTIVAL DE LA PLATA"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="480dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/btnPlata"
+        android:layout_width="128dp"
+        android:layout_height="122dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/plata"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="336dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

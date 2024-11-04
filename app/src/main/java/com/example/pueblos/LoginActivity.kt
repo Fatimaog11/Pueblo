@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
                     // Navegar a otra actividad o pantalla principal
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
-                    finish() // Cierra la actividad actual
+                    finish()
 
                 } else {
                     // Si el inicio de sesión falla, mostrar mensaje
