@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Imagen de fondo (Reloj) -->
+    <FrameLayout
+        android:id="@+id/ivEncabezado"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Imagen de fondo -->
+        <ImageView
+            android:id="@+id/ivEncabezado2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pena" />
+
+        <!-- Capa semitransparente -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000" /> <!-- Negro con opacidad al 50% -->
+    </FrameLayout>
+    <!-- Texto grande "REAL DEL MONTE" alineado a la izquierda -->
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="55dp"
+        android:text="PARQUE DE PEÑAS CARGADAS"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivEncabezado" />
+
+    <!-- Subtítulo -->
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Este evento reúne a los diversos comerciantes que elaboran pastes, cada uno con su forma especial de preparación. También cuenta con la participación de panaderos ingleses que elaboran este platillo tradicional de acuerdo a la receta original (estilo cornish)."
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+
+    <!-- Botones circulares en una sola línea -->
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo">
+
+        <LinearLayout
+            android:id="@+id/llBotonesCirculares"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Botón "Pueblos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnPueblo"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Pueblo Icon"
+                    android:src="@drawable/pue" />
+
+                <TextView
+                    android:id="@+id/btnPueblotxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Pueblos"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Atractivos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnAtractivos"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Atractivos Icon"
+                    android:src="@drawable/atractivos" />
+
+                <TextView
+                    android:id="@+id/btnAtractivostxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Atractivos"
+                    android:textColor="@color/rosa"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <!-- Botón "Eventos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnEventos"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Eventos Icon"
+                    android:src="@drawable/events" />
+
+                <TextView
+                    android:id="@+id/btnEventostxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Eventos"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Hotel" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnHotel"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Hotel Icon"
+                    android:src="@drawable/hotel" />
+
+                <TextView
+                    android:id="@+id/btnHoteltxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Hotel"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Restaurantes" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnRestaurantes"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Restaurantes Icon"
+                    android:src="@drawable/restaurant" />
+
+                <TextView
+                    android:id="@+id/btnRestaurantestxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Restaurantes"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Rutas" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnRutas"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Rutas Icon"
+                    android:src="@drawable/map" />
+
+                <TextView
+                    android:id="@+id/btnRutastxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Rutas"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Botones separados para eventos -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llBotonesCirculares"
+        tools:ignore="NotSibling"></LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:gravity="left"
+        android:text="A sólo diez minutos al noroeste de la ciudad de Pachuca, por una carretera que cruza el bosque y dentro del municipio de Epazoyucan, se encuentra una de las bellezas naturales de mayor impacto en Hidalgo: Peñas Cargadas, paraje verde donde se alzan enormes piedras en forma de columnas de casi 80 metros, las cuales sostienen en su punta otras piedras también de grandes proporciones, rodeadas de pinos, encinos y oyameles."
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
+
+
+    <TextView
+        android:id="@+id/festi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="Es un escenario ideal para la práctica de deportes extremos, caminatas, días de campo y campamentos."
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Dirección"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPager2" />
+
+    <TextView
+        android:id="@+id/fest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Carretera Federal Pachuca-Tampico s/n, Mineral del Monte, Hidalgo."
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fecha" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="278dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/festi" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

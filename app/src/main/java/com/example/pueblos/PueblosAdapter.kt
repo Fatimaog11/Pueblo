@@ -13,7 +13,7 @@ class PueblosAdapter(listaPueblos: List<Any>) : RecyclerView.Adapter<PueblosAdap
     // ViewHolder interno que contiene las vistas del item
     class PuebloViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombrePueblo: TextView = itemView.findViewById(R.id.tvNombrePueblo)
-        val imagenPueblo: ImageView = itemView.findViewById(R.id.ivPueblo)
+        val imagenPueblo: ImageView = itemView.findViewById(R.id.ivImagenPueblo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PuebloViewHolder {

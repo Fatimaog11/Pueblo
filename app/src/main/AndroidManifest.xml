@@ -26,11 +26,48 @@
         </activity>
 
         <!-- MainActivity -->
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:exported="true"/>
 
         <!-- LoginActivity -->
         <activity android:name=".LoginActivity"
             android:exported="true" />
+
+        <activity android:name=".InfoActivity"
+            android:exported="true" />
+
+        <activity android:name=".InicioActivity"
+            android:exported="true" />
+
+        <activity android:name=".PasteActivity"
+            android:exported="true" />
+
+        <activity android:name=".FeriaActivity"
+            android:exported="true" />
+
+        <activity android:name=".AtractivosActivity"
+            android:exported="true" />
+
+        <activity android:name=".Parque_penasActivity"
+            android:exported="true" />
+
+        <activity android:name=".HilocheActivity"
+            android:exported="true" />
+
+        <activity android:name=".CascadaBanActivity"
+            android:exported="true" />
+
+        <activity android:name=".MinaActivity"
+            android:exported="true" />
+
+        <activity android:name=".PanteonActivity"
+            android:exported="true" />
+
+        <activity android:name=".ZelontlaActivity"
+            android:exported="true" />
+
+
+
     </application>
 
 </manifest>

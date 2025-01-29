@@ -42,9 +42,15 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+
+
 
     // Firebase dependencies
     implementation(platform(libs.firebase.bom)) // Asegúrate de que esta línea esté antes de las dependencias de Firebase

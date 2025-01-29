@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Imagen de fondo (Reloj) -->
+    <ImageView
+        android:id="@+id/ivEncabezado"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/platainicio"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Texto grande "REAL DEL MONTE" alineado a la izquierda -->
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FESTIVAL DE LA PLATA"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/ivEncabezado"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="55dp" />
+
+    <!-- Subtítulo -->
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se encuentra a tan sólo 2 horas de la CDMX y definitivamente es un destino lleno de historia y sabor, que vale mucho la pena conocer. Precisamente aquí nacieron los deliciosos pastes y fue donde se jugó fútbol por primera vez en México."
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botones circulares en una sola línea -->
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/llBotonesCirculares"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Botón "Pueblos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnPueblo"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Pueblo Icon"
+                    android:src="@drawable/pue" />
+
+                <TextView
+                    android:id="@+id/btnPueblotxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Pueblos"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Atractivos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/btnAtractivos"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:src="@drawable/atractivos"
+                    android:contentDescription="Atractivos Icon" />
+                <TextView
+                    android:id="@+id/btnAtractivostxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Atractivos"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Eventos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnEventos"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Eventos Icon"
+                    android:src="@drawable/events" />
+
+                <TextView
+                    android:id="@+id/btnEventostxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Eventos"
+                    android:textColor="@color/rosa"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Hotel" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnHotel"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Hotel Icon"
+                    android:src="@drawable/hotel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Hotel"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Restaurantes" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnRestaurantes"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Restaurantes Icon"
+                    android:src="@drawable/restaurant" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Restaurantes"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Rutas" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnRutas"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Rutas Icon"
+                    android:src="@drawable/map" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Rutas"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Botones separados para eventos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="180dp"
+        app:layout_constraintTop_toBottomOf="@id/llBotonesCirculares"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="NotSibling">
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left"
+        android:text="Con el fin de reconocer los más de 500 años de historia de trabajo minero en este pueblo, desde hace unos años, durante el mes de julio, se realiza el Festival de la Plata."
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />/>
+
+    <TextView
+        android:id="@+id/conc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Concursos tradicionales en el Festival de la Plata"
+        android:textSize="12sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtlar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left"
+        android:text="Una de las actividades favoritas de la Feria será el concurso de las ya famosas enchiladas mineras y un jarro de pulque, en donde las y los concursantes deben consumirlas en el menor tiempo posible.
+En la anterior edición, de acuerdo a los organizadores, una persona logró el récord de un minuto, lo que será difícil romperlo para este 2024."
+        android:textSize="11sp"
+        android:layout_marginTop="12dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/conc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/donde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Dónde se realiza el Festival de la Plata"
+        android:textSize="12sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/txtlar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/festi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:gravity="left"
+        android:text="El Festival se realiza a lo largo de la calle principal de Real del Monte, en la que se colocarán los más de 200 expositores y los visitantes podrán disfrutar y divertirse."
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/donde"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Fecha de celebración"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPager2" />
+
+    <TextView
+        android:id="@+id/fest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:gravity="left"
+        android:text="El Festival de la Plata de Real del Monte, Hidalgo, se celebró del 18 al 21 de julio de 2024. Este evento se realiza en el marco del Día del Minero, que se celebra el 11 de julio."
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fecha" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="196dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/festi" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

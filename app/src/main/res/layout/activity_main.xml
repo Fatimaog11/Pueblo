@@ -105,11 +105,12 @@
                     android:contentDescription="Pueblo Icon" />
 
                 <TextView
+                    android:id="@+id/btnPueblotxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Pueblos"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/rosa"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -120,7 +121,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_margin="10dp">
-
                 <ImageView
                     android:id="@+id/btnAtractivos"
                     android:layout_width="44dp"
@@ -128,13 +128,13 @@
                     android:background="@drawable/btn_circle_background"
                     android:src="@drawable/atractivos"
                     android:contentDescription="Atractivos Icon" />
-
                 <TextView
+                    android:id="@+id/btnAtractivostxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Atractivos"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/white"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -155,6 +155,7 @@
                     android:contentDescription="Eventos Icon" />
 
                 <TextView
+                    android:id="@+id/btnEventosText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -180,6 +181,7 @@
                     android:contentDescription="Hotel Icon" />
 
                 <TextView
+                    android:id="@+id/btnHoteltxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -205,6 +207,7 @@
                     android:contentDescription="Restaurantes Icon" />
 
                 <TextView
+                    android:id="@+id/btnRestaurantestxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -230,6 +233,7 @@
                     android:contentDescription="Rutas Icon" />
 
                 <TextView
+                    android:id="@+id/btnRutastxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"

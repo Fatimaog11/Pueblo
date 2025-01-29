@@ -19,7 +19,6 @@ class LoginActivity : AppCompatActivity() {
 
     // Firebase Authentication
     private lateinit var auth: FirebaseAuth
-
     private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
             if (correo.isNotEmpty() && contrasena.isNotEmpty()) {
                 iniciarSesion(correo, contrasena)
             } else {
-                // Si faltan campos
                 Toast.makeText(this, "Por favor, ingresa todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
@@ -54,27 +52,50 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+        // Configurar el comportamiento de foco en los campos de texto
+        setFocusListeners()
+    }
+
+    private fun setFocusListeners() {
+        etUsuario.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                if (etUsuario.text.toString() == "Usuario") {
+                    etUsuario.setText("")
+                }
+            } else {
+                if (etUsuario.text.toString().isEmpty()) {
+                    etUsuario.setText("Usuario")
+                }
+            }
+        }
+
+        etContrasena.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                if (etContrasena.text.toString() == "Contraseña") {
+                    etContrasena.setText("")
+                }
+            } else {
+                if (etContrasena.text.toString().isEmpty()) {
+                    etContrasena.setText("Contraseña")
+                }
+            }
+        }
     }
 
     private fun iniciarSesion(correo: String, contrasena: String) {
         auth.signInWithEmailAndPassword(correo, contrasena)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Inicio de sesión exitoso
                     Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-
-                    // Navegar a otra actividad o pantalla principal
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
-
                 } else {
-                    // Si el inicio de sesión falla, mostrar mensaje
                     Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { e ->
-                // Mostrar mensaje de error
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }

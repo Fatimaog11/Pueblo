@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Imagen de fondo -->
+    <ImageView
+        android:id="@+id/ivEncabezado"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/inicio"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Texto grande "REAL DEL MONTE" alineado a la izquierda -->
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REAL DEL MONTE"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/ivEncabezado"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="55dp" />
+
+    <!-- Subtítulo -->
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Se encuentra a tan sólo 2 horas de la CDMX y definitivamente es un destino lleno de historia y sabor..."
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
+
+    <!-- Botones circulares en una sola línea -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo">
+
+        <LinearLayout
+            android:id="@+id/llBotonesCirculares"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Botón "Pueblos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnPueblo"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Pueblo Icon"
+                    android:src="@drawable/pue" />
+
+                <TextView
+                    android:id="@+id/btnPueblotxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Pueblos"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Atractivos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/btnAtractivos"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:src="@drawable/atractivos"
+                    android:contentDescription="Atractivos Icon" />
+                <TextView
+                    android:id="@+id/btnAtractivostxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Atractivos"
+                    android:textColor="@color/rosa"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Eventos" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btnEventos"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:contentDescription="Eventos Icon"
+                    android:src="@drawable/events" />
+
+                <TextView
+                    android:id="@+id/btnEventostxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Eventos"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Hotel" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/btnHotel"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:src="@drawable/hotel"
+                    android:contentDescription="Hotel Icon" />
+                <TextView
+                    android:id="@+id/btnHoteltxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Hotel"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Restaurantes" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/btnRestaurantes"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:src="@drawable/restaurant"
+                    android:contentDescription="Restaurantes Icon" />
+                <TextView
+                    android:id="@+id/btnRestaurantestxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Restaurantes"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Botón "Rutas" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/btnRutas"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/btn_circle_background"
+                    android:src="@drawable/map"
+                    android:contentDescription="Rutas Icon" />
+                <TextView
+                    android:id="@+id/btnRutastxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Rutas"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Botones de eventos -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo">
+
+        <!-- Botón "Feria del Dulce Nombre" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btnparque"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="PARQUE DE PEÑAS CARGADAS"
+                android:scaleType="centerCrop"
+                android:src="@drawable/parquecarg" />
+            <TextView
+                android:id="@+id/btnparquetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="PARQUE DE PEÑAS CARGADAS"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Botón "Festival del Paste" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btnhiloche"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="HILOCHE"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hiloche" />
+
+            <TextView
+                android:id="@+id/btnhilochetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="HILOCHE"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Botón "Festival de la Plata" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btncascada"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="CASCADA DE BANDOLA"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cascada" />
+
+            <TextView
+                android:id="@+id/btncascadatxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="CASCADA DE BANDOLA"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+        <!-- Botón "Festival del Viento" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btnMina"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="MINA LA DIFICULTAD Icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mindif" />
+            <TextView
+                android:id="@+id/btnMinatxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="MINA LA DIFICULTAD"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Botón "Día de Muertos" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btnpanteon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="PANTEON INGLESs Icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/panteon" />
+
+            <TextView
+                android:id="@+id/btnpanteontxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="PANTEON INGLES"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Botón "Carnaval de Primavera" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btnSantuario"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="Santuario Icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/santuario" />
+            <TextView
+                android:id="@+id/btnSantuariotxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="SANTUARIO DEL SEÑOR DE ZELONTLA"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Botón "Feria de Minerales" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btnpena"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="Peña Icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pena" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="PEÑA DEL ZUMATE"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Botón "Festival de las Luminarias" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btncasa"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="Museo Icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mcasa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="MUSEO CASA GRANDE"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Botón "Semana Santa" -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/btnparroquia"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="parroquia Icon"
+                android:scaleType="centerCrop"
+                android:src="@drawable/parro" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="PARROQUIA"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
